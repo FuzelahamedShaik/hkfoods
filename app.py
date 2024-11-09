@@ -11,7 +11,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Load data from the Excel file into pandas DataFrames
-file_path = '../HKFoods_Hackathon data 25102024.xlsx'
+file_path = 'HKFoods_Hackathon data 25102024.xlsx'
 excel_data = pd.ExcelFile(file_path)
 
 # Read the relevant sheets
