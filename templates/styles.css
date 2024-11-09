@@ -1,0 +1,112 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 20px;
+}
+
+/* Container Styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styling */
+h2 {
+    font-size: 2em;
+    color: #4e73df; /* Dark Blue for the main title */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Card Styling */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    font-weight: bold;
+    font-size: 1.2em;
+    background-color: #4e73df; /* Matching header color with main title */
+    color: white;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8px 8px 0 0;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Form Styling */
+.form-group label {
+    font-weight: bold;
+    color: #4e73df;
+}
+
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 1em;
+    color: #333;
+}
+
+.btn-primary {
+    background-color: #4e73df;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #2e59d9;
+}
+
+/* Chart Styling */
+.card-body > div {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+/* Alert Threshold Settings */
+.card-body p {
+    font-size: 1.1em;
+    color: #333;
+    padding-top: 10px;
+}
+
+.card-body p strong {
+    color: #e74a3b; /* Highlight errors in red */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    .card-header, .form-group label {
+        font-size: 1em;
+    }
+    
+    .btn-primary {
+        font-size: 0.9em;
+    }
+}

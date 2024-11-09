@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Production Dashboard</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+<body>
+    <div class="container mt-5">
+        <h2>Production Dashboard</h2>
+
+        <!-- Production Flow Points -->
+        <div class="card mt-4">
+            <div class="card-header">Production Flow Points</div>
+            <div class="card-body">
+                {{ flows_chart|safe }}
+            </div>
+        </div>
+        
+        <!-- Production Weight Deviation Chart -->
+        <div class="card mt-4">
+            <div class="card-header">Weight Deviation by Product</div>
+            <div class="card-body">
+                {{ prod_chart|safe }}
+            </div>
+        </div>
+
+        <!-- Team Scores Leaderboard -->
+        <div class="card mt-4">
+            <div class="card-header">Leaderboard</div>
+            <div class="card-body">
+                {{ team_chart|safe }}
+            </div>
+        </div>
+
+        <!-- Predicted Weight Deviations -->
+        <div class="card mt-4">
+            <div class="card-header">Predicted Weight Deviations for Future Batches</div>
+            <div class="card-body">
+                {{ pred_chart|safe }}
+                <p><strong>Mean Absolute Error of Model:</strong> {{ mae }}</p>
+            </div>
+        </div>
+
+        <!-- Threshold Settings -->
+        <div class="card mt-4">
+            <div class="card-header">Alert Thresholds</div>
+            <div class="card-body">
+                <form action="/update_thresholds" method="post">
+                    <div class="form-group">
+                        <label>Weight Deviation Threshold (g)</label>
+                        <input type="number" step="0.1" class="form-control" name="weight_deviation_threshold" value="{{ thresholds['weight_deviation_threshold'] }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Humidity Threshold (%)</label>
+                        <input type="number" step="0.1" class="form-control" name="humidity_threshold" value="{{ thresholds['humidity_threshold'] }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Temperature Threshold (°C)</label>
+                        <input type="number" step="0.1" class="form-control" name="temperature_threshold" value="{{ thresholds['temperature_threshold'] }}">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Update Thresholds</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
